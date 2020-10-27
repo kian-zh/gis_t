@@ -17,6 +17,7 @@ class App extends Component {
     let data = this.mapPage.current.state.draw.getAll()
     const features = this.mapPage.current.state.features;
     data.features = features;
+    data['fields'] = [{name: 'NAME', type: 'String', alias: "NAME",length: 128}]
     console.log(features)
     console.log(data);
 
