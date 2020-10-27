@@ -12,12 +12,27 @@
   font-size: 4vh;
   position: fixed;
   text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-.authorName{
+.submit-button{
+  position: fixed!important;
+  right: 1vw;
+  top: 12vh;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: rgba(255,255,255,0.97)!important;
+  border-radius: 4px!important;
+  color:#191a1a!important;
+}
+
+.submit-button:hover{
+  background-color: rgba(255,255,255,0.90)!important;
+}
+
+.author-name{
   font-size: 3vh;
 }
