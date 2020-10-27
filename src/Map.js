@@ -53,7 +53,7 @@ class Map extends Component {
     handleOk = () => {
         const listLength = this.state.features.length;
         const features = this.state.features;
-        features[listLength-1]['name'] = this.state.inputName;
+        features[listLength-1]['attributes'] = {NAME: this.state.inputName};
         this.setState({
             isModal: false, 
             inputName: '',
