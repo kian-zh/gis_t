@@ -22,7 +22,7 @@ class App extends Component {
     let index = 0;
     features.map((item)=>{
       let newItem = {}
-      newItem['attributes'] = {FID: index, NAME: item.name};
+      newItem['attributes'] = {FID: index, NAME: item.attributes.NAME};
       index = index + 1;
       const ring = item.geometry.coordinates
       newItem['geometry'] = {rings: ring};
