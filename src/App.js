@@ -14,10 +14,37 @@ class App extends Component {
   mapPage = React.createRef();
 
   handleSubmit = () => {
-    let data = this.mapPage.current.state.draw.getAll()
+    //let data = this.mapPage.current.state.draw.getAll()
     const features = this.mapPage.current.state.features;
-    data.features = features;
-    data['fields'] = [{name: 'NAME', type: 'String', alias: "NAME",length: 128}]
+    console.log(features);
+    let data = {};
+    data['features'] = [];
+    let index = 0;
+    features.map((item)=>{
+      let newItem = {}
+      newItem['attributes'] = {FID: index, NAME: item.name};
+      index = index + 1;
+      const ring = item.geometry.coordinates
+      newItem['geometry'] = {rings: ring};
+      data.features = data.features.concat(newItem);
+    });
+    data['fields'] = [
+      {name: 'FID', type: 'esriFieldTypeOID', alias: "FID"},
+      {name: 'NAME', type: 'esriFieldTypeString', alias: "NAME", length: 128},
+    ];
+    data['geometryType'] = 'esriGeometryPolygon';
+    data['fieldAliases'] = {
+      FID: 'FID',
+      NAME: 'NAME',
+    };
+    data['displayFieldName'] = '';
+    data['spatialReference'] = {
+      wkid: 4326,
+      latestWkid: 4326,
+    };
+
+
+
     console.log(features)
     console.log(data);
 
